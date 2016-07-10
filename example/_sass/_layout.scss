@@ -240,3 +240,35 @@
         }
     }
 }
+
+$base-color: pink;
+
+@mixin headline($color, $size) {
+ color: $color;
+ font-size: $size;
+}
+``` and then to call it use `@include` and pass in the appropriate values (in the correct order):
+```sass
+h1 { @include headline($base-color, 12px);}
+
+.meal-box {
+  color: #333;
+  border: 1px solid #bbb;
+  box-shadow: 1px 1px 0 #ddd;
+  margin: 0 0 10px;
+  padding: 15px;
+}
+
+.breakfast {
+  @extend .meal-box;
+}
+
+.lunch {
+  @extend .meal-box;
+  background-color: yellow;
+}
+
+.dinner {
+  @extend .meal-box;
+  background-color: orange;
+}
